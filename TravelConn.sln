@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2020
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "TravelConn", "TravelConn\TravelConn.sfproj", "{B9F9D843-7603-46B0-BA6F-24285C6742F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeographyService", "GeographyService\GeographyService.csproj", "{9BCBC877-E9F2-4865-8253-96E6DF8DD749}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeographyModel", "GeographyModel\GeographyModel.csproj", "{5575036E-FCAF-4F46-8FED-47D2A3BDE45B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{DE281BE1-8184-44DF-B815-A3C0F4F12109}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9F9D843-7603-46B0-BA6F-24285C6742F7}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{B9F9D843-7603-46B0-BA6F-24285C6742F7}.Debug|x64.ActiveCfg = Debug|x64
+		{B9F9D843-7603-46B0-BA6F-24285C6742F7}.Debug|x64.Build.0 = Debug|x64
+		{B9F9D843-7603-46B0-BA6F-24285C6742F7}.Debug|x64.Deploy.0 = Debug|x64
+		{B9F9D843-7603-46B0-BA6F-24285C6742F7}.Release|Any CPU.ActiveCfg = Release|x64
+		{B9F9D843-7603-46B0-BA6F-24285C6742F7}.Release|x64.ActiveCfg = Release|x64
+		{B9F9D843-7603-46B0-BA6F-24285C6742F7}.Release|x64.Build.0 = Release|x64
+		{B9F9D843-7603-46B0-BA6F-24285C6742F7}.Release|x64.Deploy.0 = Release|x64
+		{9BCBC877-E9F2-4865-8253-96E6DF8DD749}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BCBC877-E9F2-4865-8253-96E6DF8DD749}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BCBC877-E9F2-4865-8253-96E6DF8DD749}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9BCBC877-E9F2-4865-8253-96E6DF8DD749}.Debug|x64.Build.0 = Debug|Any CPU
+		{9BCBC877-E9F2-4865-8253-96E6DF8DD749}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BCBC877-E9F2-4865-8253-96E6DF8DD749}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BCBC877-E9F2-4865-8253-96E6DF8DD749}.Release|x64.ActiveCfg = Release|Any CPU
+		{9BCBC877-E9F2-4865-8253-96E6DF8DD749}.Release|x64.Build.0 = Release|Any CPU
+		{5575036E-FCAF-4F46-8FED-47D2A3BDE45B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5575036E-FCAF-4F46-8FED-47D2A3BDE45B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5575036E-FCAF-4F46-8FED-47D2A3BDE45B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5575036E-FCAF-4F46-8FED-47D2A3BDE45B}.Debug|x64.Build.0 = Debug|Any CPU
+		{5575036E-FCAF-4F46-8FED-47D2A3BDE45B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5575036E-FCAF-4F46-8FED-47D2A3BDE45B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5575036E-FCAF-4F46-8FED-47D2A3BDE45B}.Release|x64.ActiveCfg = Release|Any CPU
+		{5575036E-FCAF-4F46-8FED-47D2A3BDE45B}.Release|x64.Build.0 = Release|Any CPU
+		{DE281BE1-8184-44DF-B815-A3C0F4F12109}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE281BE1-8184-44DF-B815-A3C0F4F12109}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE281BE1-8184-44DF-B815-A3C0F4F12109}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DE281BE1-8184-44DF-B815-A3C0F4F12109}.Debug|x64.Build.0 = Debug|Any CPU
+		{DE281BE1-8184-44DF-B815-A3C0F4F12109}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE281BE1-8184-44DF-B815-A3C0F4F12109}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE281BE1-8184-44DF-B815-A3C0F4F12109}.Release|x64.ActiveCfg = Release|Any CPU
+		{DE281BE1-8184-44DF-B815-A3C0F4F12109}.Release|x64.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A2020BEF-3A32-4004-AFF5-C1D4515CC3A9}
+	EndGlobalSection
+EndGlobal
