@@ -3,13 +3,24 @@
   <Parameters>
     <Parameter Name="Api_InstanceCount" DefaultValue="-1" />
     <Parameter Name="GeographyService_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="WebService_GeographyServiceName" DefaultValue="GeographyService" />
+    <Parameter Name="WebService_ReverseProxyPort" DefaultValue="19081" />
   </Parameters>
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
        should match the Name and Version attributes of the ServiceManifest element defined in the 
        ServiceManifest.xml file. -->
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="ApiPkg" ServiceManifestVersion="1.0.0" />
-    <ConfigOverrides />
+    <ConfigOverrides>
+      <ConfigOverride Name="Config">
+        <Settings>
+          <Section Name="MyConfigSection">
+            <Parameter Name="GeographyServiceName" Value="[WebService_GeographyServiceName]" />
+            <Parameter Name="ReverseProxyPort" Value="[WebService_ReverseProxyPort]" />
+          </Section>
+        </Settings>
+      </ConfigOverride>
+    </ConfigOverrides>
   </ServiceManifestImport>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="GeographyServicePkg" ServiceManifestVersion="1.0.0" />
