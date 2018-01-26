@@ -1,11 +1,10 @@
-﻿using System;
+﻿using GeographyModel;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Fabric;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
@@ -20,7 +19,7 @@ namespace Api.Controllers
 
         public CountriesController(
             StatelessServiceContext serviceContext,
-            HttpClient httpClient, 
+            HttpClient httpClient,
             FabricClient fabricClient,
             ConfigSettings settings
             )
@@ -31,17 +30,9 @@ namespace Api.Controllers
             this.fabricClient = fabricClient;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAsync()
+        private async Task<IActionResult> Get<T>(string proxyUrl)
         {
-            //var a = new string[] { "value1", "value2" };
-
-            //return this.Json(a);
-
-            string serviceUri = $"{this.serviceContext.CodePackageActivationContext.ApplicationName}/{this.configSettings.GeographyServiceName}".Replace("fabric:/", "");
-
-            string proxyUrl = $"http://localhost:{this.configSettings.ReverseProxyPort}/{serviceUri}/api/countries";
-
+            this.httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = await this.httpClient.GetAsync(proxyUrl);
 
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
@@ -49,7 +40,63 @@ namespace Api.Controllers
                 return this.StatusCode((int)response.StatusCode);
             }
 
-            return this.Ok(await response.Content.ReadAsStringAsync());
+            var jsonString = await response.Content.ReadAsStringAsync();
+            var model = JsonConvert.DeserializeObject<T>(jsonString);
+            return this.Ok(model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAsync()
+        {
+            string serviceUri = $"{this.serviceContext.CodePackageActivationContext.ApplicationName}/{this.configSettings.GeographyServiceName}".Replace("fabric:/", "");
+
+            string proxyUrl = $"http://localhost:{this.configSettings.ReverseProxyPort}/{serviceUri}/api/countries";
+
+            return await Get<List<Country>>(proxyUrl);
+        }
+
+        [HttpGet]
+        [Route("{code}")]
+        public async Task<IActionResult> GetCountyByCodeAsync(string code)
+        {
+            string serviceUri = $"{this.serviceContext.CodePackageActivationContext.ApplicationName}/{this.configSettings.GeographyServiceName}".Replace("fabric:/", "");
+
+            string proxyUrl = $"http://localhost:{this.configSettings.ReverseProxyPort}/{serviceUri}/api/countries/{code}";
+
+            return await Get<Country>(proxyUrl);
+        }
+
+        [HttpGet]
+        [Route("{code}/cities")]
+        public async Task<IActionResult> GetCitiesAsync(string code)
+        {
+            string serviceUri = $"{this.serviceContext.CodePackageActivationContext.ApplicationName}/{this.configSettings.GeographyServiceName}".Replace("fabric:/", "");
+
+            string proxyUrl = $"http://localhost:{this.configSettings.ReverseProxyPort}/{serviceUri}/api/countries/{code}/cities";
+
+            return await Get<List<City>>(proxyUrl);
+        }
+
+        [HttpGet]
+        [Route("permalink/{permalink}/cities")]
+        public async Task<IActionResult> GetCountryPermalinkAsync(string permalink)
+        {
+            string serviceUri = $"{this.serviceContext.CodePackageActivationContext.ApplicationName}/{this.configSettings.GeographyServiceName}".Replace("fabric:/", "");
+
+            string proxyUrl = $"http://localhost:{this.configSettings.ReverseProxyPort}/{serviceUri}/api/countries/permalink/{permalink}/cities";
+
+            return await Get<List<City>>(proxyUrl);
+        }
+
+        [HttpGet]
+        [Route("permalink/{countryPermalink}/cities/{cityPermalink}")]
+        public async Task<IActionResult> GetCityPermalinkAsync(string countryPermalink, string cityPermalink)
+        {
+            string serviceUri = $"{this.serviceContext.CodePackageActivationContext.ApplicationName}/{this.configSettings.GeographyServiceName}".Replace("fabric:/", "");
+
+            string proxyUrl = $"http://localhost:{this.configSettings.ReverseProxyPort}/{serviceUri}/api/countries/permalink/{countryPermalink}/cities/{cityPermalink}";
+
+            return await Get<City>(proxyUrl);
         }
     }
 }

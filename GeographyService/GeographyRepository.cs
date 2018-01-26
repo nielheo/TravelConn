@@ -32,10 +32,10 @@ namespace GeographyService
                 && c.Country.Code.ToLower() == countryCode.ToLower()).FirstOrDefaultAsync();
         }
 
-        public async Task<City> GetCityByPermalink(string permalink, string countryPermalink)
+        public async Task<City> GetCityByPermalink(string countryPermalink, string cityPermalink)
         {
             return await _db.Cities.Where(c =>
-                c.Permalink == permalink
+                c.Permalink == cityPermalink
                 && c.Country.Permalink.ToLower() == countryPermalink.ToLower()).FirstOrDefaultAsync();
         }
 
@@ -70,6 +70,14 @@ namespace GeographyService
                 .OrderBy(c => c.Display.ToLower().IndexOf(name))
                 .ThenBy(c => c.Display)
                 .ToListAsync();
+        }
+
+        public async Task<List<City>> GetCitiesInCountryByPermalink(string permalink)
+        {
+            return await _db.Cities
+                .Where(c => c.Country.Permalink.ToLower() == permalink.ToLower())
+                .ToListAsync();
+
         }
     }
 }

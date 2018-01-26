@@ -41,6 +41,28 @@ namespace GeographyService.Controllers
         }
 
         [HttpGet]
+        [Route("permalink/{permalink}")]
+        public async Task<Country> GetCountryPermalink(string permalink)
+        {
+            return await _GeoRep.GetCountryByPermalink(permalink);
+        }
+
+        [HttpGet]
+        [Route("permalink/{permalink}/cities")]
+        public async Task<List<City>> GetCitiesPermalink(string permalink)
+        {
+            return await _GeoRep.GetCitiesInCountryByPermalink(permalink);
+        }
+
+        [HttpGet]
+        [Route("permalink/{countrypermalink}/cities/{cityPermalink}")]
+        public async Task<City> GetCityPermalink(string countrypermalink, string cityPermalink)
+        {
+            return await _GeoRep.GetCityByPermalink(countrypermalink, cityPermalink);
+        }
+
+
+        [HttpGet]
         [Route("/cityAutocomplete/{name}")]
         public async Task<List<CityAutocomplete>> CityAutocomplete(string name)
         {
