@@ -275,6 +275,28 @@ namespace GeographyService.Test
             Assert.AreEqual(0, cities.Count);
         }
 
+        [TestMethod]
+        public async Task GetCitiesInCountry_NullOrEmpty()
+        {
+            //Null
+            var cities = await _geographyRepository.GetCitiesInCountry(null);
+
+            Assert.IsNotNull(cities);
+            Assert.AreEqual(0, cities.Count);
+
+            //Empty
+            cities = await _geographyRepository.GetCitiesInCountry(string.Empty);
+
+            Assert.IsNotNull(cities);
+            Assert.AreEqual(0, cities.Count);
+
+            //Empty
+            cities = await _geographyRepository.GetCitiesInCountry("");
+
+            Assert.IsNotNull(cities);
+            Assert.AreEqual(0, cities.Count);
+        }
+
 
 
         [TestMethod]
@@ -351,6 +373,28 @@ namespace GeographyService.Test
         {
             //Upper Case
             var cities = await _geographyRepository.GetCitiesInCountryByPermalink("XX");
+
+            Assert.IsNotNull(cities);
+            Assert.AreEqual(0, cities.Count);
+        }
+
+        [TestMethod]
+        public async Task GetCitiesInCountryByPermalink_NullEmpty()
+        {
+            //Null
+            var cities = await _geographyRepository.GetCitiesInCountryByPermalink(null);
+
+            Assert.IsNotNull(cities);
+            Assert.AreEqual(0, cities.Count);
+
+            //Empty
+            cities = await _geographyRepository.GetCitiesInCountryByPermalink(string.Empty);
+
+            Assert.IsNotNull(cities);
+            Assert.AreEqual(0, cities.Count);
+
+            //Empty
+            cities = await _geographyRepository.GetCitiesInCountryByPermalink("");
 
             Assert.IsNotNull(cities);
             Assert.AreEqual(0, cities.Count);
@@ -488,6 +532,76 @@ namespace GeographyService.Test
 
             city = await _geographyRepository.GetCityByPermalink(string.Empty, string.Empty);
             Assert.IsNull(city);
+        }
+
+        [TestMethod]
+        public async Task GetCityAutoComplete_Bang()
+        {
+            //Upper Case
+            var cities = await _geographyRepository.GetCityAutocomplete("BANG");
+
+            Assert.IsNotNull(cities);
+            Assert.AreNotEqual(0, cities.Count);
+
+            foreach(var citi in cities)
+            {
+                Assert.AreNotEqual(-1, citi.Display.ToLower().IndexOf("bang"));
+            }
+
+            //Lower Case
+            cities = await _geographyRepository.GetCityAutocomplete("bang");
+
+            Assert.IsNotNull(cities);
+            Assert.AreNotEqual(0, cities.Count);
+
+            foreach (var citi in cities)
+            {
+                Assert.AreNotEqual(-1, citi.Display.ToLower().IndexOf("bang"));
+            }
+
+            //Camel Case
+            cities = await _geographyRepository.GetCityAutocomplete("Bang");
+
+            Assert.IsNotNull(cities);
+            Assert.AreNotEqual(0, cities.Count);
+
+            foreach (var citi in cities)
+            {
+                Assert.AreNotEqual(-1, citi.Display.ToLower().IndexOf("bang"));
+            }
+
+            //Random Case
+            cities = await _geographyRepository.GetCityAutocomplete("bAng");
+
+            Assert.IsNotNull(cities);
+            Assert.AreNotEqual(0, cities.Count);
+
+            foreach (var citi in cities)
+            {
+                Assert.AreNotEqual(-1, citi.Display.ToLower().IndexOf("bang"));
+            }
+        }
+
+        [TestMethod]
+        public async Task GetCityAutoComplete_NullOrEmptyBang()
+        {
+            //null
+            var cities = await _geographyRepository.GetCityAutocomplete(null);
+
+            Assert.IsNotNull(cities);
+            Assert.AreEqual(0, cities.Count);
+
+            //Empty
+            cities = await _geographyRepository.GetCityAutocomplete(string.Empty);
+
+            Assert.IsNotNull(cities);
+            Assert.AreEqual(0, cities.Count);
+
+            //Empty
+            cities = await _geographyRepository.GetCityAutocomplete("");
+
+            Assert.IsNotNull(cities);
+            Assert.AreEqual(0, cities.Count);
         }
 
     }
