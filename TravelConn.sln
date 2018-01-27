@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeographyService.Test", "GeographyService.Test\GeographyService.Test.csproj", "{1392960B-3897-4B9E-AFC3-741C1F16FEF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Test", "Api.Test\Api.Test.csproj", "{DABD8813-D5F5-446E-886C-FAC492F7D93F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,14 @@ Global
 		{1392960B-3897-4B9E-AFC3-741C1F16FEF7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1392960B-3897-4B9E-AFC3-741C1F16FEF7}.Release|x64.ActiveCfg = Release|Any CPU
 		{1392960B-3897-4B9E-AFC3-741C1F16FEF7}.Release|x64.Build.0 = Release|Any CPU
+		{DABD8813-D5F5-446E-886C-FAC492F7D93F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DABD8813-D5F5-446E-886C-FAC492F7D93F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DABD8813-D5F5-446E-886C-FAC492F7D93F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DABD8813-D5F5-446E-886C-FAC492F7D93F}.Debug|x64.Build.0 = Debug|Any CPU
+		{DABD8813-D5F5-446E-886C-FAC492F7D93F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DABD8813-D5F5-446E-886C-FAC492F7D93F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DABD8813-D5F5-446E-886C-FAC492F7D93F}.Release|x64.ActiveCfg = Release|Any CPU
+		{DABD8813-D5F5-446E-886C-FAC492F7D93F}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

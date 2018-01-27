@@ -85,7 +85,7 @@ namespace GeographyService.Test
             var country = await _geographyRepository.GetCountryByCode("XX");
 
             Assert.IsNull(country);
-            
+
             //Lower case
             country = await _geographyRepository.GetCountryByCode("xx");
 
@@ -105,7 +105,7 @@ namespace GeographyService.Test
 
             Assert.IsNull(country);
         }
-        
+
         [TestMethod]
         public async Task GetCountryByPermalink_Thailand()
         {
@@ -178,7 +178,6 @@ namespace GeographyService.Test
             Assert.AreEqual("new-zealand", country.Permalink);
         }
 
-
         [TestMethod]
         public async Task GetCountryByPermalink_XXX()
         {
@@ -216,7 +215,6 @@ namespace GeographyService.Test
 
             Assert.IsNull(country);
 
-            
             //Empty
             country = await _geographyRepository.GetCountryByPermalink("");
 
@@ -234,7 +232,6 @@ namespace GeographyService.Test
 
             Assert.AreEqual(1, cities.Where(c => c.Name == "Bangkok").Count());
             Assert.AreEqual(0, cities.Where(c => c.Name == "Jakarta").Count());
-
         }
 
         [TestMethod]
@@ -248,7 +245,6 @@ namespace GeographyService.Test
 
             Assert.AreEqual(0, cities.Where(c => c.Name == "Bangkok").Count());
             Assert.AreEqual(1, cities.Where(c => c.Name == "Jakarta").Count());
-
         }
 
         [TestMethod]
@@ -262,7 +258,6 @@ namespace GeographyService.Test
 
             Assert.AreEqual(0, cities.Where(c => c.Name == "Bangkok").Count());
             Assert.AreEqual(0, cities.Where(c => c.Name == "Jakarta").Count());
-
         }
 
         [TestMethod]
@@ -297,8 +292,6 @@ namespace GeographyService.Test
             Assert.AreEqual(0, cities.Count);
         }
 
-
-
         [TestMethod]
         public async Task GetCitiesInCountryByPermalink_Thailand()
         {
@@ -319,7 +312,6 @@ namespace GeographyService.Test
 
             Assert.AreEqual(1, cities.Where(c => c.Name == "Bangkok").Count());
             Assert.AreEqual(0, cities.Where(c => c.Name == "Jakarta").Count());
-
         }
 
         [TestMethod]
@@ -342,7 +334,6 @@ namespace GeographyService.Test
 
             Assert.AreEqual(0, cities.Where(c => c.Name == "Bangkok").Count());
             Assert.AreEqual(1, cities.Where(c => c.Name == "Jakarta").Count());
-
         }
 
         [TestMethod]
@@ -365,7 +356,6 @@ namespace GeographyService.Test
 
             Assert.AreEqual(0, cities.Where(c => c.Name == "Bangkok").Count());
             Assert.AreEqual(0, cities.Where(c => c.Name == "Jakarta").Count());
-
         }
 
         [TestMethod]
@@ -457,7 +447,6 @@ namespace GeographyService.Test
             Assert.IsNull(city);
         }
 
-
         [TestMethod]
         public async Task GetCityByPermalink_TH_Bangkok()
         {
@@ -543,7 +532,7 @@ namespace GeographyService.Test
             Assert.IsNotNull(cities);
             Assert.AreNotEqual(0, cities.Count);
 
-            foreach(var citi in cities)
+            foreach (var citi in cities)
             {
                 Assert.AreNotEqual(-1, citi.Display.ToLower().IndexOf("bang"));
             }
@@ -603,6 +592,5 @@ namespace GeographyService.Test
             Assert.IsNotNull(cities);
             Assert.AreEqual(0, cities.Count);
         }
-
     }
 }

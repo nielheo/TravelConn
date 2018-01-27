@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using GeographyModel;
-using Microsoft.AspNetCore.Http;
+﻿using GeographyModel;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace GeographyService.Controllers
 {
@@ -12,7 +9,7 @@ namespace GeographyService.Controllers
     [Route("api/Countries")]
     public class CountriesController : Controller
     {
-        IGeographyRepository _GeoRep;
+        private IGeographyRepository _GeoRep;
 
         public CountriesController(IGeographyRepository _GeoRep)
         {
@@ -60,7 +57,6 @@ namespace GeographyService.Controllers
         {
             return await _GeoRep.GetCityByPermalink(countrypermalink, cityPermalink);
         }
-
 
         [HttpGet]
         [Route("/cityAutocomplete/{name}")]
