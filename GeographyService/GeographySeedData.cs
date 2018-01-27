@@ -20,7 +20,6 @@ namespace GeographyService
 
         public static void EnsureSeedData(this GeographyDbContext db)
         {
-
             var country = ReadAsync<List<Country>>("countries.json").Result;
             db.AddRange(country);
             db.SaveChanges();

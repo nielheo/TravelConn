@@ -22,20 +22,29 @@ namespace GeographyService
 
         public async Task<List<City>> GetCitiesInCountry(string countryCode)
         {
+            if (string.IsNullOrEmpty(countryCode))
+                return new List<City>();
+
             return await _db.Cities.Where(c => c.CountryCode.ToLower() == countryCode.ToLower()).ToListAsync();
         }
 
         public async Task<City> GetCityByCode(string code, string countryCode)
         {
+            if (string.IsNullOrEmpty(code) || string.IsNullOrEmpty(countryCode))
+                return null;
+
             return await _db.Cities.Where(c => 
                 c.Code.ToLower() == code.ToLower()
                 && c.Country.Code.ToLower() == countryCode.ToLower()).FirstOrDefaultAsync();
         }
 
-        public async Task<City> GetCityByPermalink(string countryPermalink, string cityPermalink)
+        public async Task<City> GetCityByPermalink(string cityPermalink, string countryPermalink)
         {
+            if (string.IsNullOrEmpty(countryPermalink) || string.IsNullOrEmpty(cityPermalink))
+                return null;
+
             return await _db.Cities.Where(c =>
-                c.Permalink == cityPermalink
+                c.Permalink.ToLower() == cityPermalink.ToLower()
                 && c.Country.Permalink.ToLower() == countryPermalink.ToLower()).FirstOrDefaultAsync();
         }
 
@@ -46,18 +55,27 @@ namespace GeographyService
 
         public async Task<Country> GetCountryByPermalink(string permalink)
         {
+            if (string.IsNullOrEmpty(permalink))
+                return null;
+
             return await _db.Countries.Where(c =>
                 c.Permalink.ToLower() == permalink.ToLower()).FirstOrDefaultAsync();
         }
 
         public async Task<Country> GetCountryByCode(string code)
         {
+            if (string.IsNullOrEmpty(code))
+                return null;
+
             return await _db.Countries.Where(c =>
                 c.Code.ToLower() == code.ToLower()).FirstOrDefaultAsync();
         }
 
         public async Task<List<CityAutocomplete>> GetCityAutocomplete(string name)
         {
+            if (string.IsNullOrEmpty(name))
+                return new List<CityAutocomplete>();
+
             name = name.ToLower();
             return await _db.Cities.Include(c => c.Country)
                 .Where(c => c.Name.ToLower().IndexOf(name) > -1)
@@ -74,6 +92,9 @@ namespace GeographyService
 
         public async Task<List<City>> GetCitiesInCountryByPermalink(string permalink)
         {
+            if (string.IsNullOrEmpty(permalink))
+                return new List<City>();
+
             return await _db.Cities
                 .Where(c => c.Country.Permalink.ToLower() == permalink.ToLower())
                 .ToListAsync();

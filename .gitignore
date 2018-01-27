@@ -22,4 +22,5 @@ _ReSharper*/
 .vs/
 node_modules/
 packages/
+.axoCover/
 

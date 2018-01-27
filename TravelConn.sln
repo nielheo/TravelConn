@@ -5,11 +5,13 @@ VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "TravelConn", "TravelConn\TravelConn.sfproj", "{B9F9D843-7603-46B0-BA6F-24285C6742F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeographyService", "GeographyService\GeographyService.csproj", "{9BCBC877-E9F2-4865-8253-96E6DF8DD749}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeographyService", "GeographyService\GeographyService.csproj", "{9BCBC877-E9F2-4865-8253-96E6DF8DD749}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeographyModel", "GeographyModel\GeographyModel.csproj", "{5575036E-FCAF-4F46-8FED-47D2A3BDE45B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{DE281BE1-8184-44DF-B815-A3C0F4F12109}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{DE281BE1-8184-44DF-B815-A3C0F4F12109}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeographyService.Test", "GeographyService.Test\GeographyService.Test.csproj", "{1392960B-3897-4B9E-AFC3-741C1F16FEF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,14 @@ Global
 		{DE281BE1-8184-44DF-B815-A3C0F4F12109}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DE281BE1-8184-44DF-B815-A3C0F4F12109}.Release|x64.ActiveCfg = Release|Any CPU
 		{DE281BE1-8184-44DF-B815-A3C0F4F12109}.Release|x64.Build.0 = Release|Any CPU
+		{1392960B-3897-4B9E-AFC3-741C1F16FEF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1392960B-3897-4B9E-AFC3-741C1F16FEF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1392960B-3897-4B9E-AFC3-741C1F16FEF7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1392960B-3897-4B9E-AFC3-741C1F16FEF7}.Debug|x64.Build.0 = Debug|Any CPU
+		{1392960B-3897-4B9E-AFC3-741C1F16FEF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1392960B-3897-4B9E-AFC3-741C1F16FEF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1392960B-3897-4B9E-AFC3-741C1F16FEF7}.Release|x64.ActiveCfg = Release|Any CPU
+		{1392960B-3897-4B9E-AFC3-741C1F16FEF7}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
