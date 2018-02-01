@@ -5,6 +5,7 @@
     <Parameter Name="Api_InstanceCount" DefaultValue="-1" />
     <Parameter Name="GeographyService_InstanceCount" DefaultValue="-1" />
     <Parameter Name="WebService_GeographyServiceName" DefaultValue="GeographyService" />
+    <Parameter Name="WebService_EanHotelService" DefaultValue="EanHotel.Service" />
     <Parameter Name="WebService_ReverseProxyPort" DefaultValue="19081" />
   </Parameters>
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
@@ -21,6 +22,7 @@
         <Settings>
           <Section Name="MyConfigSection">
             <Parameter Name="GeographyServiceName" Value="[WebService_GeographyServiceName]" />
+            <Parameter Name="EanHotelServiceName" Value="[WebService_EanHotelService]" />
             <Parameter Name="ReverseProxyPort" Value="[WebService_ReverseProxyPort]" />
           </Section>
         </Settings>

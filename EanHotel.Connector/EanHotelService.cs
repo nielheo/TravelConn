@@ -23,7 +23,10 @@ namespace EanHotel.Connector
                         $"&{OccupancyToString(request.Occupancies)}" +
                         $"&maxRatePlanCount=3", RequestType.HotelAvail);
 
-            return JsonConvert.DeserializeObject<HotelAvailRs>(result);
+            return JsonConvert.DeserializeObject<HotelAvailRs>(result, new JsonSerializerSettings {
+                   NullValueHandling = NullValueHandling.Ignore,
+                   ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            });
         }
 
         private string OccupancyToString(List<RoomOccupancy> occupancies)

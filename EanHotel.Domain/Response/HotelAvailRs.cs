@@ -32,7 +32,10 @@ namespace EanHotel.Domain.Response
 
     public class Hotellist
     {
+        [JsonProperty(PropertyName = "@size")]
         public string size { get; set; }
+
+        [JsonProperty(PropertyName = "@activePropertyCount")]
         public string activePropertyCount { get; set; }
 
         [JsonConverter(typeof(SingleOrArrayConverter<Hotelsummary>))]
@@ -89,8 +92,8 @@ namespace EanHotel.Domain.Response
         public bool propertyRestricted { get; set; }
         public int expediaPropertyId { get; set; }
         public Rateinfos RateInfos { get; set; }
-        public Valueadds ValueAdds { get; set; }
-        public Bedtypes BedTypes { get; set; }
+        //public Valueadds ValueAdds { get; set; }
+        //public Bedtypes BedTypes { get; set; }
         public string smokingPreferences { get; set; }
     }
 
@@ -105,10 +108,8 @@ namespace EanHotel.Domain.Response
         public string priceBreakdown { get; set; }
         public string promo { get; set; }
         public string rateChange { get; set; }
-        //public Roomgroup RoomGroup { get; set; }
         public Chargeablerateinfo ChargeableRateInfo { get; set; }
         public string cancellationPolicy { get; set; }
-        public Cancelpolicyinfolist CancelPolicyInfoList { get; set; }
         public bool nonRefundable { get; set; }
         public string rateType { get; set; }
         public int currentAllotment { get; set; }
@@ -116,29 +117,7 @@ namespace EanHotel.Domain.Response
         public string promoDescription { get; set; }
         public string promoType { get; set; }
     }
-
-    //public class Roomgroup
-    //{
-    //    public Room[] Room { get; set; }
-    //}
-
-    //public class Room
-    //{
-    //    public int numberOfAdults { get; set; }
-    //    public int numberOfChildren { get; set; }
-    //    public string rateKey { get; set; }
-    //    public Chargeablenightlyrate[] ChargeableNightlyRates { get; set; }
-    //    public int[] childAges { get; set; }
-    //}
-
-    //public class Chargeablenightlyrate
-    //{
-    //    public string baseRate { get; set; }
-    //    public string rate { get; set; }
-    //    public string promo { get; set; }
-    //    public string fenced { get; set; }
-    //}
-
+    
     public class Chargeablerateinfo
     {
         [JsonProperty(PropertyName = "@averageBaseRate")]
@@ -165,8 +144,8 @@ namespace EanHotel.Domain.Response
         [JsonProperty(PropertyName = "@total")]
         public string total { get; set; }
 
-        public Nightlyratesperroom NightlyRatesPerRoom { get; set; }
-        public Surcharges Surcharges { get; set; }
+        //public Nightlyratesperroom NightlyRatesPerRoom { get; set; }
+        //public Surcharges Surcharges { get; set; }
     }
 
     public class Nightlyratesperroom

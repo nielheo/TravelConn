@@ -8,6 +8,7 @@ using EanHotel.Domain;
 using EanHotel.Domain.Request;
 using EanHotel.Domain.Response;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
+using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
 
 namespace EanHotel.Service
@@ -24,7 +25,8 @@ namespace EanHotel.Service
         public async Task<HotelAvailRs> HotelAvailAsync(HotelAvailRq request)
         {
             EanHotel.Connector.EanHotelService hotelService = new Connector.EanHotelService();
-            return await hotelService.HotelAvailAsync(request);
+            var result = await hotelService.HotelAvailAsync(request);
+            return result;
         }
 
         /// <summary>
@@ -33,7 +35,11 @@ namespace EanHotel.Service
         /// <returns>A collection of listeners.</returns>
         protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
         {
-            return new ServiceInstanceListener[0];
+            return new[] { new ServiceInstanceListener(context => 
+                this.CreateServiceRemotingListener(context)) };
+
+            //return new[] { new  ServiceReplicaListener(context => 
+            //    this.CreateServiceRemotingListener(context)) };
         }
 
         /// <summary>
