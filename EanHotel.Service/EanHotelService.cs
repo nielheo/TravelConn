@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using EanHotel.Domain;
 using EanHotel.Domain.Request;
 using EanHotel.Domain.Response;
+using EanHotel.Service.Connectors;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
@@ -24,8 +25,8 @@ namespace EanHotel.Service
 
         public async Task<HotelAvailRs> HotelAvailAsync(HotelAvailRq request)
         {
-            EanHotel.Connector.EanHotelService hotelService = new Connector.EanHotelService();
-            var result = await hotelService.HotelAvailAsync(request);
+            HotelConnector hotelConnector = new HotelConnector();
+            var result = await hotelConnector.HotelAvailAsync(request);
             return result;
         }
 

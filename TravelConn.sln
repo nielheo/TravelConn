@@ -19,10 +19,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EanHotel.Service", "EanHote
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EanHotel.Domain", "EanHotel.Domain\EanHotel.Domain.csproj", "{642A8ADB-2073-44F5-AA1F-7ABCCC812742}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EanHotel.Connector", "EanHotel.Connector\EanHotel.Connector.csproj", "{118B389B-155F-4924-8BE3-06EC913529FB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EanHotel.Connector.Test", "EanHotel.Connector.Test\EanHotel.Connector.Test.csproj", "{0E1411AF-2127-4CAE-96AC-9A82558D4FAD}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,22 +89,6 @@ Global
 		{642A8ADB-2073-44F5-AA1F-7ABCCC812742}.Release|Any CPU.Build.0 = Release|Any CPU
 		{642A8ADB-2073-44F5-AA1F-7ABCCC812742}.Release|x64.ActiveCfg = Release|Any CPU
 		{642A8ADB-2073-44F5-AA1F-7ABCCC812742}.Release|x64.Build.0 = Release|Any CPU
-		{118B389B-155F-4924-8BE3-06EC913529FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{118B389B-155F-4924-8BE3-06EC913529FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{118B389B-155F-4924-8BE3-06EC913529FB}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{118B389B-155F-4924-8BE3-06EC913529FB}.Debug|x64.Build.0 = Debug|Any CPU
-		{118B389B-155F-4924-8BE3-06EC913529FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{118B389B-155F-4924-8BE3-06EC913529FB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{118B389B-155F-4924-8BE3-06EC913529FB}.Release|x64.ActiveCfg = Release|Any CPU
-		{118B389B-155F-4924-8BE3-06EC913529FB}.Release|x64.Build.0 = Release|Any CPU
-		{0E1411AF-2127-4CAE-96AC-9A82558D4FAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0E1411AF-2127-4CAE-96AC-9A82558D4FAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0E1411AF-2127-4CAE-96AC-9A82558D4FAD}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{0E1411AF-2127-4CAE-96AC-9A82558D4FAD}.Debug|x64.Build.0 = Debug|Any CPU
-		{0E1411AF-2127-4CAE-96AC-9A82558D4FAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0E1411AF-2127-4CAE-96AC-9A82558D4FAD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0E1411AF-2127-4CAE-96AC-9A82558D4FAD}.Release|x64.ActiveCfg = Release|Any CPU
-		{0E1411AF-2127-4CAE-96AC-9A82558D4FAD}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EanHotel.Connector
+namespace EanHotel.Service.Connectors
 {
-    public class BaseService
+    public class BaseConnector
     {
         protected string _ApiKey = "2wt5kd9pdbvbycdrrk3y9yzp";
         protected string _SharedSecret = "RrwEwN7j";

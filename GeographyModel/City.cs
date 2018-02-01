@@ -17,6 +17,11 @@ namespace GeographyModel
         public string Name { get; set; }
 
         [Required]
+        [StringLength(500)]
+        [Column(TypeName = "nvarchar(500)")]
+        public string NameLong { get; set; }
+
+        [Required]
         [StringLength(100)]
         [Column(TypeName = "varchar(100)")]
         public string Permalink { get; set; }

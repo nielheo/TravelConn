@@ -1,15 +1,16 @@
 ﻿using EanHotel.Domain;
 using EanHotel.Domain.Request;
 using EanHotel.Domain.Response;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Newtonsoft.Json;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace EanHotel.Connector
+namespace EanHotel.Service.Connectors
 {
-    public class EanHotelService : BaseService, IEanHotelService
+    public class HotelConnector : BaseConnector, IEanHotelService
     {
         public async Task<HotelAvailRs> HotelAvailAsync(HotelAvailRq request)
         {
@@ -23,9 +24,10 @@ namespace EanHotel.Connector
                         $"&{OccupancyToString(request.Occupancies)}" +
                         $"&maxRatePlanCount=3", RequestType.HotelAvail);
 
-            return JsonConvert.DeserializeObject<HotelAvailRs>(result, new JsonSerializerSettings {
-                   NullValueHandling = NullValueHandling.Ignore,
-                   ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            return JsonConvert.DeserializeObject<HotelAvailRs>(result, new JsonSerializerSettings
+            {
+                NullValueHandling = NullValueHandling.Ignore,
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
             });
         }
 

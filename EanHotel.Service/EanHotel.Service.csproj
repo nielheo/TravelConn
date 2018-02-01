@@ -114,6 +114,8 @@
     <Reference Include="System.ServiceModel" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connectors\BaseConnector.cs" />
+    <Compile Include="Connectors\HotelConnector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EanHotelService.cs" />
     <Compile Include="Program.cs" />
@@ -126,10 +128,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EanHotel.Connector\EanHotel.Connector.csproj">
-      <Project>{118b389b-155f-4924-8be3-06ec913529fb}</Project>
-      <Name>EanHotel.Connector</Name>
-    </ProjectReference>
     <ProjectReference Include="..\EanHotel.Domain\EanHotel.Domain.csproj">
       <Project>{642a8adb-2073-44f5-aa1f-7abccc812742}</Project>
       <Name>EanHotel.Domain</Name>

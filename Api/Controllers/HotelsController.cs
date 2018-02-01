@@ -23,7 +23,7 @@
             this.configSettings = settings;
         }
 
-        [Route("/{country}/{city}/hotels")]
+        [Route("/api/{country}/{city}/hotels")]
         public async Task<IActionResult> GetHotel(string country, string city, 
             DateTime? checkIn, DateTime? checkOut)
         {
