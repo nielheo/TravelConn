@@ -35,6 +35,10 @@ namespace Api.Test
                 CreateConfigurationSectionParameters("ReverseProxyPort", "19081");
             configSection.Parameters.Add(parameter2);
 
+            ConfigurationProperty parameter3 =
+                CreateConfigurationSectionParameters("EanHotelServiceName", "EanHotel.Service");
+            configSection.Parameters.Add(parameter3);
+
             //Build ConfigurationPackage
             ConfigurationPackage configPackage = CreateConfigurationPackage(configSettings, nameof(configPackage.Path));
 
